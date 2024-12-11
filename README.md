@@ -1,5 +1,3 @@
-//complex-number
-
 #include<iostream>
 using namespace std;
 
@@ -60,6 +58,5 @@ int main()
 	cin >> z4; // operator>>
 
 	cout << z4; // operator<<
-  cout << z3*z4; // operator*
-
+	cout << z3*z4; // operator*
 }
