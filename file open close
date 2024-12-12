@@ -1,0 +1,37 @@
+// Write a C++ program that creates an output file, writes information to it, closes the file 
+// and open it again as an input file and read the information from the file.
+#include <iostream>
+#include<fstream>
+#include<string>
+using namespace std;
+int main()
+{
+ofstream outfile("output.txt");
+int n;
+cout << "Enter number of line in file: ";
+cin >> n;
+string line1;
+for (int i=0; i<n ;i++){
+cout << "Enter line "<<i+1<< endl;
+cin.ignore();
+getline(cin , line1);
+outfile << line1 << endl;
+}
+outfile.close();
+ifstream infile;
+infile.open("output.txt");
+if(!infile){
+cerr << "ERROR in file opening ! " << endl;
+}
+string readline;
+for ( int i=0 ; i<n ; i++){
+if(infile.eof()){
+cout << "We reached at end of file !";
+break;
+}
+getline( infile , readline);
+cout << readline <<"-" << endl;
+}
+infile.close();
+return 0;
+}
